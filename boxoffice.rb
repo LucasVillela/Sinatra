@@ -1,5 +1,6 @@
 require 'sinatra'
-require "sinatra/content_for"
+require 'sinatra/content_for'
+require 'sinatra/static_assets'
 require 'shotgun'
 require 'nokogiri'
 require 'open-uri'
@@ -19,5 +20,10 @@ get '/' do
 end
 
 get '/test' do
+
+  url = 'http://omdbapi.com/?t=interstellar'
+  @result = filmeInfo(url)
+  @poster_path = posterFilme(@result['imdbID'])
+  erb :test
   
 end

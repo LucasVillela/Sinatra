@@ -1,6 +1,30 @@
 
-#page = Nokogiri::HTML(open("http://www.boxofficemojo.com/alltime/world/?pagenum=1&p=.htm"))   
-#td = page.css('td')
+require 'open-uri'
+require 'json'
+require 'ruby-tmdb3'
+
+
+
+def filmeInfo(url)
+
+  #url = 'http://omdbapi.com/?t=Avatar'
+  buffer = open(url).read
+  result = JSON.parse(buffer)
+  return result
+end
+
+def posterFilme(imdbid)
+
+  file = File.open("/home/lucas/Sinatra/BoxOffice_app/api","r")
+  api = file.read.chomp
+  Tmdb.api_key = api
+  file.close
+  Tmdb.default_language = "en"
+  movie = TmdbMovie.find(:imdb => imdbid, :limit => 1)
+
+  return movie.poster_path
+end
+
 
   def anoFilme(td)
     vetor = Array.new
