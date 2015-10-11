@@ -10,36 +10,75 @@ body
   background: #444;
   color: #555;}
 
+
+
+.row {display:table;
+
+}
+.column {display:table-row;
+  color: white;
+  font-size: large;
+  width: 50px;
+  
+  background-color: #333;}
+.cell-r, .cell-t, .cell-g, .cell-y{display:table-cell;
+border: 1px solid #F8F8F8;
+font-weight: bold;
+font-size: small;
+padding-top: 5px;
+padding-bottom: 5px;  
+}
+.cell-r{ padding-right: 7px; 
+  padding-left: 7px;
+  width: 3em;
+}
+
+.cell-t{
+  padding-right: 1px;
+  padding-left: 1px;
+  width: 30em;
+}
+
+.cell-g{
+  padding-left: 5px;
+  padding-right: 5px;
+  width: 7em;
+}
+
+.cell-y{
+padding-right: 7px; 
+  padding-left: 7px;
+  width: 3em;
+}
+
+.movieinfo-img-left {
+  float: left;
+  width: 200px;
+  margin-right: 10px;
+  
+}
+.movieinfo-content {
+  float: left;
+  width: 300px;
+  margin-top: 11em;
+}
+.movieinfo {
+  width: 530px;
+  padding: 20px;
+  border: 3px solid #525A66;
+  margin-top: 0px;
+  margin-bottom: 10px;
+  background: #BEB9B9;
+  overflow: auto;
+  box-shadow: 0 1px 2px 1px rgba(0,0,0,0.1);
+}
+
 p
 { padding: 0 0 16px 0;
   line-height: 1.7em;}
 
 img
 { border: 0;}
-
-h1, h2, h3, h4, h5, h6 
-{ font: normal 175% 'century gothic', arial, sans-serif;
-  color: #111;
-  margin: 0 0 15px 0;
-  padding: 15px 0 5px 0;}
-
-h2
-{ font: normal 175% 'century gothic', arial, sans-serif;
-  color: #444;}
-
-h4, h5, h6
-{ margin: 0;
-  padding: 0 0 5px 0;
-  font: normal 120% arial, sans-serif;
-  color: #555;}
-
-h5, h6
-{ font: italic 95% arial, sans-serif;
-  padding: 0 0 15px 0;
-  color: #000;}
-
-h6
-{ color: #888;}
 
 a, a:hover
 { outline: none;
@@ -185,7 +224,7 @@ ul#menu li a:hover
   text-decoration: none;} 
 
 #content
-{ text-align: left;
+{ text-align: center;
   width: 600px;
   float: left;
   padding: 20px 0 15px 30px;}

@@ -1,20 +1,45 @@
-<table id="filmes">
-<tr>
-	<th>Rank</th>
-	<th>Name</th>
-	<th>Grossing</th>
-	<th>Year</th></tr>
-<% @nome.each_with_index do |element,index| %> 
-    <tr>
-    <td><%=index+1%>
-    <td><%=@nome[index]%></td>
-    <td><%=@bilheteria[index]%></td>
-    <td><%=@ano[index]%></td>
-    </tr>
-    <%end%>
-    </table>
+<script>
+$( "#btn-filme" ).click(function() {
+  $( "#info-filme" ).toggle( "slow",function() );
+});
+</script>
 
 
+<div class="row">
+  <div class="column">
+    <div class="cell-r">Rank</div>
+    <div class="cell-t">Title</div>
+    <div class="cell-g">Grossing</div>
+    <div class="cell-y">Year</div>
+  </div>
+</div>
+
+<%@glist.each do |row| %> 
+ <div class="row">
+  <div class="column" id="btn-filme">
+    <div class="cell-r"><%=row["Rank"]%></div>
+    <div class="cell-t"><%=row["Title"]%></div>
+    <div class="cell-g"><%=row["Grossing"]%></div>
+    <div class="cell-y"><%=row["MYear"]%></div>
+  </div>
+</div>
+<div class="movieinfo" id="info-filme-<%=row["Title"]%>" align="left">
+        <div class="movieinfo-img-left">
+        <%= image_tag("http://image.tmdb.org/t/p/w185" + row["Poster"])%>
+        </div>
+        <div class="movieinfo-content">
+        <b>Plot: </b><%=row["Plot"]%><br>
+        <b>Actors: </b><%=row["Actors"]%><br>
+        <b>Director: </b><%=row["Director"]%><br>
+        <b>Genre: </b><%=row["Genre"]%><br>
+        <b>IMDB: </b><%=row["IMDBRating"]%><br>
+        </div>
+</div>
+<%end%>
+
+
+
+IMDBRating,Actors,Plot,Genre,Director,Poster
 <% content_for :sidebar do %>
  <img src="http://ia.media-imdb.com/images/M/MV5BMjIxNTU4MzY4MF5BMl5BanBnXkFtZTgwMzM4ODI3MjE@._V1._SX600_SY600_.jpg">
 <% end %>
