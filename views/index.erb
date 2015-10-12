@@ -1,9 +1,3 @@
-<script>
-$( "#btn-filme" ).click(function() {
-  $( "#info-filme" ).toggle( "slow",function() );
-});
-</script>
-
 
 <div class="row">
   <div class="column">
@@ -16,14 +10,14 @@ $( "#btn-filme" ).click(function() {
 
 <%@glist.each do |row| %> 
  <div class="row">
-  <div class="column" id="btn-filme">
+  <div class="column" id="btn-<%=row["Title"]%>">
     <div class="cell-r"><%=row["Rank"]%></div>
     <div class="cell-t"><%=row["Title"]%></div>
     <div class="cell-g"><%=row["Grossing"]%></div>
     <div class="cell-y"><%=row["MYear"]%></div>
   </div>
 </div>
-<div class="movieinfo" id="info-filme-<%=row["Title"]%>" align="left">
+<div class="movieinfo" id="info-btn-<%=row["Title"]%>" align="left">
         <div class="movieinfo-img-left">
         <%= image_tag("http://image.tmdb.org/t/p/w185" + row["Poster"])%>
         </div>
@@ -39,7 +33,15 @@ $( "#btn-filme" ).click(function() {
 
 
 
-IMDBRating,Actors,Plot,Genre,Director,Poster
+
 <% content_for :sidebar do %>
  <img src="http://ia.media-imdb.com/images/M/MV5BMjIxNTU4MzY4MF5BMl5BanBnXkFtZTgwMzM4ODI3MjE@._V1._SX600_SY600_.jpg">
 <% end %>
+
+<script>
+$('.column').click(function(){
+    var divID = '#info-' + $(this).attr('id');   
+   $(divID).toggle("slow");
+});
+</script>
+

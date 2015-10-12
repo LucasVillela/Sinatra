@@ -22,23 +22,3 @@ get '/test' do
   erb :test
   
 end
-
-
-=begin
-
-  result.each do |row|
-    @vetor << row["Title"]
-  end 
-
-
-<% @nome.each_with_index do |element,index| %> 
-    <tr>
-    <td><%=index+1%>
-    <td><%=@nome[index]%></td>
-    <td><%=@bilheteria[index]%></td>
-    <td><%=@ano[index]%></td>
-    </tr>
-    <%end%>
-    </table>
-
-=end
